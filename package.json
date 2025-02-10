@@ -1,4 +1,18 @@
 {
   "name": "twilio-caller",
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.6.0",
+  "devDependencies": {
+    "@twilio/voice-sdk": "^2.12.3",
+    "@types/node": "^22.13.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vite": "^6.1.0"
+  },
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "twilio": "^5.4.3"
+  }
 }
