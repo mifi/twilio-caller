@@ -17,7 +17,7 @@ exports.handler = function(context, event, callback) {
   // Only handle outgoing calls
   assert(event.To !== callerId.replaceAll(/[^\d+]/g, ''));
 
-	const twiml = new Twilio.twiml.VoiceResponse();
+  const twiml = new Twilio.twiml.VoiceResponse();
 
   // set the callerId (from)
   let dial = twiml.dial({ callerId });
