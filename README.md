@@ -1,10 +1,12 @@
 # twilio-caller
 
-Tool for calling using twilio API from the browser. Useful for testing. Uses `@twilio/voice-sdk`.
+Calling using twilio API from the browser. Useful for testing when developing phone calling based software. Uses `@twilio/voice-sdk`.
+
+## Quick start
 
 In twilio create a new number and an app, e.g. `twilio-caller` and link it to the number. Also create an [API key](https://console.twilio.com/us1/account/keys-credentials/api-keys).
 
-Then create a Function in Twilio with path `/twilio-caller/handle-call` and set the app's Webhook (Request URL) to the full URL of the Function. This function will simply forward the call to `@twilio/voice-sdk` in the browser:
+Then create a Function in Twilio with path `/twilio-caller/handle-call` and set the app's Webhook (Request URL) to the full URL of the function. This function will simply forward the call to `@twilio/voice-sdk` in the browser:
 
 ```js
 const assert = require('node:assert');
@@ -22,9 +24,6 @@ exports.handler = function(context, event, callback) {
 
   dial.number(event.To);
 
-  // This callback is what is returned in response to this function being invoked.
-  // It's really important! E.g. you might respond with TWiML here for a voice or SMS response.
-  // Or you might return JSON data to a studio flow. Don't forget it!
   callback(null, twiml);
 };
 ```
@@ -33,15 +32,22 @@ Ref:
 - https://www.twilio.com/docs/serverless/functions-assets/functions/invocation
 - https://www.twilio.com/docs/voice/twiml/dial
 
-Setup `.env` with data from Twilio admin. Next generate a token:
+Make sure you have Node.js. Now check out this repo and run `yarn`. Make a `.env` file with data from Twilio admin:
+- `TWILIO_ACCOUNT_SID`
+- `TWIML_APP_SID`
+- `TWILIO_API_KEY`
+- `TWILIO_API_SECRET`
+
+Next generate a token:
 
 ```bash
-tsx makeAccessToken.ts
+node --experimental-strip-types makeAccessToken.ts
 
+# Start the UI server
 yarn dev
 ```
 
-and go to your browser.
+Now go to your browser.
 
 ## Useful links
 

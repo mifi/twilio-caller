@@ -24,7 +24,7 @@ assert(identity);
 // Create a "grant" which enables a client to use Voice as a given user
 const voiceGrant = new jwt.AccessToken.VoiceGrant({
   outgoingApplicationSid: outgoingApplicationSid,
-  incomingAllow: true,//todo needed?
+  incomingAllow: true, // todo not sure if needed
 });
 
 // Create an access token which we will sign and return to the client,
