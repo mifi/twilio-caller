@@ -42,12 +42,12 @@ Next generate a token:
 
 ```bash
 node --experimental-strip-types makeAccessToken.ts
-
-# Start the UI server
-yarn dev
 ```
 
-Now go to your browser.
+# Start the UI server and open it in your browser.
+```bash
+yarn dev
+```
 
 ## Useful links
 
